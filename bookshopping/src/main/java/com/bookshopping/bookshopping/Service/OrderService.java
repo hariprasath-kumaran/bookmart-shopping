@@ -35,13 +35,13 @@ public class OrderService {
         AppUser appUser = userRepository.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("userId", "userId", userId));
 
-        Address address = addressRepository.findById(addressId)
+        Address address = addressRepository.findById((addressId))
                 .orElseThrow(() ->
                         new ResourceNotFoundException("addressId", "addressId", addressId));
 
-        OrderStatus orderStatus = orderStatusRepository.findById(2L)
+        OrderStatus orderStatus = orderStatusRepository.findById(1L)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("orderStatusId", "orderStatusId", 2));
+                        new ResourceNotFoundException("orderStatusId", "orderStatusId", 1));
 
         List<Cart> cartList = cartRepository.findUserCart(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("userId", "userId", userId));
@@ -68,9 +68,9 @@ public class OrderService {
         return getUserOrders(userId);
     }
 
-    public List<OrderResponse> getUserOrders(Long userid) {
-        List<Orders> orderList = (List<Orders>) orderRepository.findUserOrders(userid)
-                .orElseThrow(() -> new ResourceNotFoundException("userId", "userId", userid));
+    public List<OrderResponse> getUserOrders(Long userId) {
+        List<Orders> orderList = orderRepository.findUserOrders(userId)
+                .orElseThrow(() -> new ResourceNotFoundException("userId", "userId", userId));
         return orderDto.mapToOrderResponse(orderList);
     }
 

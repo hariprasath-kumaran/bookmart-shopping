@@ -17,7 +17,7 @@ public class OrderDto {
             orderResponse.setUserId(order.getAppUser().getId());
             orderResponse.setName(order.getAppUser().getName());
             orderResponse.setUsername(order.getAppUser().getUsername());
-//            orderResponse.setOrderStatus(order.getOrderStatus().getStatus());
+         orderResponse.setOrderStatus(order.getOrderStatus().getStatus());
             orderResponse.setAddress(order.getAddress());
             orderResponse.setBookList(order.getOrderedBook());
             orderResponseList.add(orderResponse);

@@ -37,7 +37,6 @@ public class AppUser {
     @NotEmpty
     @Size(min = 2, message = "Name should have at least 2 characters")
     private String name;
-
     @JsonIgnore
     @ManyToOne()
     @JoinColumn(name = "role_id", referencedColumnName = "id")

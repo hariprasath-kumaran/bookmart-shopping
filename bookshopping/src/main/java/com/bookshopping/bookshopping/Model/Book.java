@@ -35,9 +35,8 @@ public class Book {
     @Transient
     private Integer count;
 
-    @Lob
-    @Column(name = "photo", columnDefinition="BLOB")
-    private byte[] photo;
+    @Column(name = "photo")
+    private String photo;
 
     @JsonIgnore
     @ManyToOne
@@ -45,7 +44,7 @@ public class Book {
     private Category category;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "book")
+    @OneToMany(mappedBy = "book",cascade=CascadeType.ALL)
     private List<Cart> carts = new ArrayList<>();
 
     @CreationTimestamp

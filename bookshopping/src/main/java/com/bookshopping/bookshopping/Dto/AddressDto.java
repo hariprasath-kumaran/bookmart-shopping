@@ -9,18 +9,19 @@ import java.util.List;
 @Component
 public class AddressDto {
     public AddressResponse mapToAddressResponse(List<Address> addressList) {
-        return new AddressResponse();
+        return new AddressResponse(addressList);
     }
 
     public Address mapToAddress(AddressRequest addressRequest) {
         Address address = new Address();
-        if (addressRequest.getId() == null) {
-            address.setAddress(addressRequest.getAddress());
-            address.setCity(addressRequest.getCity());
-            address.setZipcode(addressRequest.getZipcode());
-        }
-        address.setId(addressRequest.getId());
+        if (addressRequest.getId() != null) {
+            address.setId((addressRequest.getId()));
 
+        }
+
+        address.setAddress(addressRequest.getAddress());
+        address.setCity(addressRequest.getCity());
+        address.setZipcode(addressRequest.getZipcode());
         return address;
     }
 }

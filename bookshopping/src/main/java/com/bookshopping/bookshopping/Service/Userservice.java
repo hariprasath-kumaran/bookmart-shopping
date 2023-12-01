@@ -2,6 +2,7 @@ package com.bookshopping.bookshopping.Service;
 
 import com.bookshopping.bookshopping.Dto.AuthDto;
 import com.bookshopping.bookshopping.Exception.InvalidUserException;
+import com.bookshopping.bookshopping.Exception.ResourceNotFoundException;
 import com.bookshopping.bookshopping.Model.AppUser;
 import com.bookshopping.bookshopping.Model.Role;
 import com.bookshopping.bookshopping.Repository.RoleRepository;
@@ -44,7 +45,7 @@ public class Userservice {
     }
     public List<AppUser> findAll(){return userRepository.findAll();}
     public AppUser findByuserId(Long id){
-        return  userRepository.findById(id).orElseThrow(()->new InvalidUserException("invalid id or user not created"));
+        return  userRepository.findById(id).orElseThrow(()->new ResourceNotFoundException("user","id",id));
     }
 
 }

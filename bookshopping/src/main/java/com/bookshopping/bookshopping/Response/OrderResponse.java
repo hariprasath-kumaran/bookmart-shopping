@@ -14,7 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderResponse {
-    private Long BookId;
     private Long userId;
     private Long id;
     private List<OrderedBook> bookList;

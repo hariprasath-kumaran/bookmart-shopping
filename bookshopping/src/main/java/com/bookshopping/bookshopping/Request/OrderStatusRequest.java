@@ -1,14 +1,12 @@
 package com.bookshopping.bookshopping.Request;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class OrderStatusRequest {
     private Long orderId;
     private Long statusId;
